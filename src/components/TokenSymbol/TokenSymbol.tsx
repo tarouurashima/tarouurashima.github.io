@@ -1,0 +1,62 @@
+import React from 'react';
+
+//Graveyard ecosystem logos
+import tombLogo from '../../assets/img/moon2.png';
+import tShareLogo from '../../assets/img/mshare.png';
+import tombLogoPNG from '../../assets/img/2omb-01.png';
+import tShareLogoPNG from '../../assets/img/t_2SHARE-01.png';
+import tBondLogo from '../../assets/img/mbond.png';
+
+// import tombLogo from '../../assets/img/crypto_tomb_cash.svg';
+// import tShareLogo from '../../assets/img/crypto_tomb_share.svg';
+// import tombLogoPNG from '../../assets/img/crypto_tomb_cash.f2b44ef4.png';
+// import tShareLogoPNG from '../../assets/img/crypto_tomb_share.bf1a6c52.png';
+// import tBondLogo from '../../assets/img/crypto_tomb_bond.svg';
+
+import tombFtmLpLogo from '../../assets/img/moonftm.png';
+import tshareFtmLpLogo from '../../assets/img/mshareftm.png';
+
+import wftmLogo from '../../assets/img/ftm_logo_blue.svg';
+import wethLogo from '../../assets/img/weth.png';
+import rtombLogo from '../../assets/img/crypto_tomb_cash.svg';
+import shibaLogo from '../../assets/img/mimlogo.png';
+
+import tombtshares from '../../assets/img/moonmshare.png';
+
+import usdc from '../../assets/img/USDC.png';
+
+const logosBySymbol: { [title: string]: string } = {
+  //Real tokens
+  //=====================
+  TOMB: tombLogo,
+  TOMBPNG: tombLogoPNG,
+  TSHAREPNG: tShareLogoPNG,
+  TSHARE: tShareLogo,
+  TBOND: tBondLogo,
+  WFTM: wftmLogo,
+  WETH: wethLogo,
+  MIM: shibaLogo,
+  // RTOMB: rtombLogo,
+  '2OMB-FTM-LP': tombFtmLpLogo,
+  '2SHARE-FTM-LP': tshareFtmLpLogo,
+  '2OMB-2SHARE-LP': tombtshares,
+  'USDC': usdc,
+  'XOMB-FTM-LP':tombFtmLpLogo,
+  'XSHARES-FTM-LP':tshareFtmLpLogo,
+  'XOMB-XSHARES-LP':tombtshares,
+};
+
+type LogoProps = {
+  symbol: string;
+  size?: number;
+};
+
+const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 64 }) => {
+  if (!logosBySymbol[symbol]) {
+    return <img src={logosBySymbol["TOMB"]} alt={`Tomb Logo`} width={size} height={size} />;
+    // throw new Error(`Invalid Token Logo symbol: ${symbol}`);
+  }
+  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
+};
+
+export default TokenSymbol;
